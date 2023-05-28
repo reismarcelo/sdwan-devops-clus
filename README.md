@@ -1,7 +1,6 @@
-
 # SDWAN DevOps
 
-CLUS 22 - This repo contains a set of tools to automate workflows and build CI/CD pipelines for Cisco SDWAN.
+CLUS 23 - This repository contains a set of tools to automate workflows and build CI/CD pipelines for Cisco SDWAN.
 
 ## Installation
 
@@ -22,19 +21,19 @@ cd sdwan-devops-clus
 - Connect the VPN
 
 ``` shell
-sudo ./play.sh generate-template-all.yml -i inventory/CLUS_SDWAN_TEMPLATE/ -t feature-banner -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
+./play.sh generate-template-all.yml -i inventory/CL_SDWAN_TEMPLATE/ -t feature-banner -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
 
-sudo ./play.sh generate-template-all.yml -i inventory/CLUS_SDWAN_TEMPLATE/ -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
+./play.sh generate-template-all.yml -i inventory/CL_SDWAN_TEMPLATE/ -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
 
-sudo ./play.sh query-attach.yml -i inventory/CLUS_SDWAN_ATTACH/ --limit site3-vedge01 -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
+./play.sh query-attach.yml -i inventory/CL_SDWAN_ATTACH/ --limit site3-vedge01 -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
 
-sudo ./play.sh attach-template.yml -i inventory/CLUS_SDWAN_ATTACH/ --limit site3-vedge01 -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
+./play.sh attach-template.yml -i inventory/CL_SDWAN_ATTACH/ --limit site3-vedge01 -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
 ```
 
 
 
 
-### Software Dependancies
+### Software Dependencies
 
 * [ansible-viptela](https://github.com/CiscoDevNet/ansible-viptela) (Delivered as part of the repo when `--recursive` is used when cloning)
 * Python 3 with the dependencies listed in requirements.txt
