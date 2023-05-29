@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 IMAGE=${IMAGE:-ghcr.io/ciscodevnet/sdwan-devops:cloud}
+SASTRE_ROOT_DIR="snapshots"
+
 OPTIONS=""
 
 if [[ ! -z "$ANSIBLE_VAULT_PASSWORD_FILE" ]]; then
@@ -17,7 +19,8 @@ OPTION_LIST=( \
    "GOOGLE_OAUTH_ACCESS_TOKEN" \
    "GCP_PROJECT" \
    "PROJ_ROOT" \
-   "CONFIG_BUILDER_METADATA"
+   "CONFIG_BUILDER_METADATA" \
+   "SASTRE_ROOT_DIR"
    )
 
 for OPTION in ${OPTION_LIST[*]}; do
@@ -27,32 +30,6 @@ for OPTION in ${OPTION_LIST[*]}; do
 done
 
 OPTIONS="$OPTIONS --env ANSIBLE_ROLES_PATH=/ansible/roles --env ANSIBLE_STDOUT_CALLBACK=debug"
-
-
-if [[ ! -z "$VIRL_HOST" ]]; then
-   OPTIONS="$OPTIONS --env =$VIRL_HOST"
-fi
-if [[ ! -z "$VIRL_USERNAME" ]]; then
-   OPTIONS="$OPTIONS --env VIRL_USERNAME=$VIRL_USERNAME"
-fi
-if [[ ! -z "$VIRL_PASSWORD" ]]; then
-   OPTIONS="$OPTIONS --env VIRL_PASSWORD=$VIRL_PASSWORD"
-fi
-if [[ ! -z "$VIRL_LAB" ]]; then
-   OPTIONS="$OPTIONS --env VIRL_LAB=$VIRL_LAB"
-fi
-if [[ ! -z "$VMANAGE_HOST" ]]; then
-   OPTIONS="$OPTIONS --env VMANAGE_HOST=$VMANAGE_HOST"
-fi
-if [[ ! -z "$VMANAGE_ORG" ]]; then
-   OPTIONS="$OPTIONS --env VMANAGE_ORG=$VMANAGE_ORG"
-fi
-if [[ ! -z "$VMANAGE_USERNAME" ]]; then
-   OPTIONS="$OPTIONS --env VMANAGE_SESSION=$VMANAGE_USERNAME"
-fi
-if [[ ! -z "$VMANAGE_PASSWORD" ]]; then
-   OPTIONS="$OPTIONS --env VIRL_SESSION=$VMANAGE_PASSWORD"
-fi
 
 while getopts ":d" opt; do
   case $opt in

@@ -32,6 +32,7 @@
     aggregate: "{{present_template_list}}"
   tags: device-template,device-template:create
   when: present_template_list
+  no_log: true
 
 - name: Interact with the vManage to create templates
   vmanage_device_template:
@@ -41,3 +42,4 @@
     state: absent
     aggregate: "{{absent_template_list}}"
   when: absent_template_list
+  no_log: true

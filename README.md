@@ -7,7 +7,7 @@ CLUS 23 - This repository contains a set of tools to automate workflows and buil
 ## Cloning the repo
 
 ```shell
-git clone https://github.com/lorenzbt/sdwan-devops-clus.git
+git clone https://github.com/reismarcelo/sdwan-devops-clus.git
 ```
 
 All operations are run out of the `sdwan-devops-clus` directory:
@@ -29,8 +29,6 @@ cd sdwan-devops-clus
 
 ./play.sh attach-template.yml -i inventory/CL_SDWAN_ATTACH/ --limit site3-vedge01 -e vmanage_password=C1sco12345 -e vmanage_user=admin -e vmanage_host=10.10.20.90
 ```
-
-
 
 
 ### Software Dependencies

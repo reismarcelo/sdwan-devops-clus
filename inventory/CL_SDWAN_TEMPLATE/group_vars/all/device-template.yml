@@ -1,21 +1,21 @@
 ---
 DeviceTemplate:
-  - templateName: 'CLUS_temp'
-    templateDescription: 'CLUS device template'
+  - templateName: 'CL_Device_Template_1'
+    templateDescription: 'Cisco Live device template type 1'
     deviceType: 'vedge-cloud'
     aaa: 'Factory_Default_AAA_Template'
-    bfd-vedge: 'CLUS_BFD'
-    banner: 'CLUS_Banner'
-    logging: 'CLUS_Logging'
+    bfd-vedge: 'CL_BFD'
+    banner: 'CL_Banner'
+    logging: 'CL_Logging'
     omp-vedge: 'Factory_Default_vEdge_OMP_Template'
     security-vedge: 'Factory_Default_vEdge_Security_Template'
-    system-vedge: 'CLUS_System'
+    system-vedge: 'CL_System'
     vpn-vedge:
-      - CLUS_VPN0:
-        - 'CLUS_VPN0_MPLS'
-        - 'CLUS_VPN0_INTERNET'
-      - CLUS_VPN1:
-        - 'CLUS_Loopback0'
-      - CLUS_VPN512:
-        - 'CLUS_VPN512_MGT'
+      - CL_VPN0:
+        - 'CL_VPN0_MPLS'
+        - 'CL_VPN0_INTERNET'
+      - CL_VPN1:
+        - 'CL_Loopback0'
+      - CL_VPN512:
+        - 'CL_VPN512_MGT'
     state: 'present'

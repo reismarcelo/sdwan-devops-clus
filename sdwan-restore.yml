@@ -1,0 +1,64 @@
+- name: SDWAN Restore
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_async_dir: "/tmp/ansible_async"
+  roles:
+    - sdwan-config
+  tasks:
+    - name: Detach and delete all
+      cisco.sastre.delete:
+        address: "{{ vmanage_host }}"
+        port: "{{ vmanage_port }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_password }}"
+        tag: "all"
+        detach: true
+      async: 600
+      poll: 10
+      register: delete_results
+      tags: never,restore:init,restore:init:debug
+
+    - name: Delete logs
+      debug:
+        var: delete_results
+      tags: never,restore:init:debug
+
+    - name: Restore and attach from init archive
+      cisco.sastre.restore:
+        address: "{{ vmanage_host }}"
+        port: "{{ vmanage_port }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_password }}"
+        tag: "all"
+        attach: true
+        archive: "snapshots/{{ vmanage_backup_archive }}"
+      async: 600
+      poll: 10
+      register: restore_init_results
+      tags: never,restore:init,restore:init:debug
+
+    - name: Restore init logs
+      debug:
+        var: restore_init_results
+      tags: never,restore:init:debug
+
+    - name: Restore from snapshot
+      cisco.sastre.restore:
+        address: "{{ vmanage_host }}"
+        port: "{{ vmanage_port }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_password }}"
+        tag: "all"
+        update: true
+        workdir: "{{ vmanage_snapshot | default(omit) }}"
+      async: 600
+      poll: 10
+      register: restore_results
+      tags: never,restore:snapshot,restore:snapshot:debug
+
+    - name: Restore logs
+      debug:
+        var: restore_results
+      tags: never,restore:snapshot:debug

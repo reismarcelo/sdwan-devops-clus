@@ -1,7 +1,7 @@
 ---
 FeatureTemplates:
   feature-bfd:
-  - templateName: 'CLUS_BFD'
+  - templateName: 'CL_BFD'
     templateDescription: 'BFD Template'
     pollInterval:
       globalValue: 120000

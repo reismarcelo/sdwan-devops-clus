@@ -20,5 +20,6 @@
       async: 90
       poll: 10
       register: attachment_results
+      no_log: true
       tags:
         - attach

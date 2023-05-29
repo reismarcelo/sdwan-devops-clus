@@ -1,0 +1,22 @@
+- name: Detach Templates
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_async_dir: "/tmp/ansible_async"
+  roles:
+    - sdwan-config
+  tasks:
+    - name: Detach template from device
+      cisco.sastre.detach_edge:
+        address: "{{ vmanage_host }}"
+        port: "{{ vmanage_port }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_password }}"
+        devices: "{{ inventory_hostname }}"
+      async: 90
+      poll: 10
+      register: detachment_results
+      no_log: true
+      tags:
+        - detach

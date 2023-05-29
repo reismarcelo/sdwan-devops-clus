@@ -1,4 +1,4 @@
-templateName: CLUS_temp
+templateName: CL_Device_Template_1
 variables:
   site_id: 1003
   system_ip: 10.10.1.17

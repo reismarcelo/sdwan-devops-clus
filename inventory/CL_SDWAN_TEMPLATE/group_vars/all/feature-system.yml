@@ -1,7 +1,7 @@
 ---
 FeatureTemplates:
   feature-system:
-    - templateName: 'CLUS_System'
+    - templateName: 'CL_System'
       templateDescription: 'System Template'
       site-id:
         variableName: 'site_id'

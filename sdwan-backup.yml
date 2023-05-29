@@ -1,0 +1,27 @@
+- name: SDWAN Backup
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_async_dir: "/tmp/ansible_async"
+  roles:
+    - sdwan-config
+  tasks:
+    - name: Backup all
+      cisco.sastre.backup:
+        address: "{{ vmanage_host }}"
+        port: "{{ vmanage_port }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_password }}"
+        tags: "all"
+        save_running: true
+        workdir: "{{ vmanage_snapshot | default(omit) }}"
+      async: 600
+      poll: 10
+      register: backup_results
+      tags: always
+
+    - name: Backup logs
+      debug:
+        var: backup_results
+      tags: never,backup:debug

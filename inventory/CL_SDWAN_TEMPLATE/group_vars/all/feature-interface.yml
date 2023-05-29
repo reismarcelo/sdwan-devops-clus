@@ -1,7 +1,7 @@
 ---
 FeatureTemplates:
   feature-interface:
-    - templateName: 'CLUS_Loopback0'
+    - templateName: 'CL_Loopback0'
       templateDescription: 'Interface Template'
       name:
         globalValue : 'loopback0'
@@ -12,7 +12,7 @@ FeatureTemplates:
       state: 'present'
       deviceType:
         - vEdge
-    - templateName: 'CLUS_VPN0_MPLS'
+    - templateName: 'CL_VPN0_MPLS'
       templateDescription: 'Interface Template'
       name:
         variableName : 'int_name_mpls'
@@ -29,7 +29,7 @@ FeatureTemplates:
       state: 'present'
       deviceType:
         - vEdge
-    - templateName: 'CLUS_VPN0_INTERNET'
+    - templateName: 'CL_VPN0_INTERNET'
       templateDescription: 'Interface Template'
       name:
         variableName : 'int_name_internet'
@@ -46,7 +46,7 @@ FeatureTemplates:
       state: 'present'
       deviceType:
         - vEdge
-    - templateName: 'CLUS_VPN512_MGT'
+    - templateName: 'CL_VPN512_MGT'
       templateDescription: 'Interface Template'
       name:
         variableName: 'int_name_mgt'

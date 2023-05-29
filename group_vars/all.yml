@@ -1,0 +1,3 @@
+---
+vmanage_port: 443
+vmanage_backup_archive: "backup-init.zip"

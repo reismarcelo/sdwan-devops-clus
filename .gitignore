@@ -2,6 +2,7 @@
 roles/sdwan-config/files/rendered_templates
 facts_cache
 viptela_api_cookie
+snapshots/data
 
 # IDE project files
 .vscode/

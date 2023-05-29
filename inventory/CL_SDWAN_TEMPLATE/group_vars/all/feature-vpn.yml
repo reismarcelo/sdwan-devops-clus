@@ -1,7 +1,7 @@
 ---
 FeatureTemplates:
   feature-vpn:
-    - templateName: 'CLUS_VPN0'
+    - templateName: 'CL_VPN0'
       templateDescription: 'VPN Template'
       vpnID:
         globalValue: 0
@@ -21,7 +21,7 @@ FeatureTemplates:
       deviceType:
         - vEdge
       state: 'present'
-    - templateName: 'CLUS_VPN1'
+    - templateName: 'CL_VPN1'
       templateDescription: 'VPN Template'
       vpnID:
         globalValue: 1
@@ -30,7 +30,7 @@ FeatureTemplates:
       deviceType:
         - vEdge
       state: 'present'
-    - templateName: 'CLUS_VPN512'
+    - templateName: 'CL_VPN512'
       templateDescription: 'VPN Template'
       vpnID:
         globalValue: 512
