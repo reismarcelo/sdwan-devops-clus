@@ -10,12 +10,12 @@ variables:
   static_route_vpn512: 0.0.0.0/0
   next_hop_static_mgt: 10.10.20.254
   int_name_mpls: ge0/0
-  int_description_mpls: transport MPLS
+  int_description_mpls: MPLS Transport
   ip_addr_mpls: 10.10.23.18/30
   int_shutdown_mpls: false
   color_mpls: mpls
   int_name_internet: ge0/2
-  int_description_internet: transport Internet
+  int_description_internet: Internet Transport
   ip_addr_internet: 10.10.23.50/30
   int_shutdown_internet: false
   color_internet: biz-internet

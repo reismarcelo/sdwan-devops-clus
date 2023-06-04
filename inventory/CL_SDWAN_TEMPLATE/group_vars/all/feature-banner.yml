@@ -4,9 +4,9 @@ FeatureTemplates:
     - templateName: 'CL_Banner'
       templateDescription: 'Banner Template'
       login:
-        globalValue: 'I am having fun at CiscoLive 2022'
+        globalValue: 'I am having fun at Cisco Live'
       motd:
-        globalValue: 'I am having fun at CiscoLive 2022'
+        globalValue: 'I am having fun at Cisco Live'
       deviceType:
         - vEdge
       state: 'present'
